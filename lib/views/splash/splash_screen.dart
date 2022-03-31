@@ -17,16 +17,12 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         height: _height,
         width: _width,
-        color: primaryColor,
-        alignment: Alignment.center,
-        child: CircleAvatar(
-          radius: _width / 10,
-          backgroundColor: whiteColor,
-          child: Image.asset(
-            logo,
-            height: _width / 5,
-            width: _width / 6,
-          ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                "$busWallpaper3",
+              ),
+              fit: BoxFit.cover),
         ),
       ),
     );

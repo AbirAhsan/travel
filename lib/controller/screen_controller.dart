@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:travel/views/home/home_screen.dart';
 
 import '../generated/locale_keys.g.dart';
 import '../services/page_navigation.dart';
@@ -33,25 +34,7 @@ class ScreenController extends GetxController
 
   void splashDelay() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      //   getOnboardToken().then((isTokenAvailable) {
-      //     if (isTokenAvailable) {
-      //       SharedDataManageService().getToken().then((token) {
-      //         if (token!.isNotEmpty) {
-      //           PageNavigationService().removeAndNavigate(
-      //             const HomeScreen(),
-      //           );
-      //         } else {
-      //           PageNavigationService().removeAndNavigate(
-      //             const LoginScreen(),
-      //           );
-      //         }
-      //       });
-      //     } else {
-      //       PageNavigationService().removeAndNavigate(
-      //         const OnBoardingScreen(),
-      //       );
-      //     }
-      //   });
+      PageNavigationService().removeAndNavigateWithStream(const HomeScreen());
     });
   }
 
