@@ -19,7 +19,7 @@ const TextStyle titleOffWhiteBoldStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle titleBlueBoldStyle = TextStyle(
+const TextStyle titlePrimaryBoldStyle = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.bold,
   fontFamily: "Arcon",
@@ -49,7 +49,7 @@ const TextStyle normaWhiteBoldStyle = TextStyle(
   fontFamily: "Arcon",
   color: whiteColor,
 );
-const TextStyle normalBlueBoldStyle = TextStyle(
+const TextStyle normalPrimaryBoldStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.bold,
   fontFamily: "Arcon",
@@ -71,7 +71,7 @@ const TextStyle normalOffWhiteRegularStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle normalBlueRegularStyle = TextStyle(
+const TextStyle normalPrimaryRegularStyle = TextStyle(
   fontSize: 18,
   fontFamily: "Arcon",
   color: primaryColor,
@@ -92,7 +92,7 @@ const TextStyle smallOffWhiteRegularStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle smallBlueRegularStyle = TextStyle(
+const TextStyle smallPrimaryRegularStyle = TextStyle(
   fontSize: 16,
   fontFamily: "Arcon",
   color: primaryColor,
@@ -116,7 +116,7 @@ const TextStyle smallOffWhiteBoldStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle smallBlueBoldStyle = TextStyle(
+const TextStyle smallPrimaryBoldStyle = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
   fontFamily: "Arcon",
@@ -138,7 +138,7 @@ const TextStyle extraSmallOffWhiteRegularStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle extraSmallBlueRegularStyle = TextStyle(
+const TextStyle extraSmallPrimaryRegularStyle = TextStyle(
   fontSize: 14,
   fontFamily: "Arcon",
   color: primaryColor,
@@ -162,7 +162,7 @@ const TextStyle extraSmallOffWhiteBoldStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle extraSmallBlueBoldStyle = TextStyle(
+const TextStyle extraSmallPrimaryBoldStyle = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.bold,
   fontFamily: "Arcon",
@@ -188,7 +188,7 @@ const TextStyle hugeSmallOffWhiteItalicStyle = TextStyle(
   fontFamily: "Arcon",
   color: Colors.white60,
 );
-const TextStyle hugeSmallBlueItalicStyle = TextStyle(
+const TextStyle hugeSmallPrimaryItalicStyle = TextStyle(
   fontSize: 12,
   fontFamily: "Arcon",
   fontStyle: FontStyle.italic,

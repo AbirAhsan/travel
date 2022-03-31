@@ -1,13 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:travel/views/auth/login_screen.dart';
 import 'package:travel/views/home/home_screen.dart';
 
-import '../generated/locale_keys.g.dart';
 import '../services/page_navigation.dart';
-import '../services/shared_data.dart';
-import '../views/variables/icon_variables.dart';
 
 class ScreenController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -34,7 +31,8 @@ class ScreenController extends GetxController
 
   void splashDelay() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      PageNavigationService().removeAndNavigateWithStream(const HomeScreen());
+      PageNavigationService()
+          .removeAndNavigateWithStream(const HomeScreen(), const LoginScreen());
     });
   }
 

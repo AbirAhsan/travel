@@ -16,7 +16,7 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> en_EN = {
   "app_details": {
-    "name": "Doorping Rider"
+    "name": "Travel"
   },
   "language_select": {
     "Choose_your_Language": "Choose Your Language",
@@ -33,7 +33,7 @@ class CodegenLoader extends AssetLoader{
   },
   "login": {
     "title": "Login",
-    "body": "with your",
+    "body": "Velkommen til\nKjetils Bussreiser !",
     "phoneNumber": "Phone Number",
     "phone": "Phone",
     "email": "E-mail",
@@ -42,6 +42,8 @@ class CodegenLoader extends AssetLoader{
     "password": "Password",
     "passwordRule1": "Please Enter Your Password",
     "passwordRule2": "Password must not be less than 4 characters",
+    "forgetPass": "Forget Password ?",
+    "reset": "Reset",
     "bottom": "Don't have an account? "
   },
   "signUp": {

@@ -24,6 +24,8 @@ abstract class  LocaleKeys {
   static const login_password = 'login.password';
   static const login_passwordRule1 = 'login.passwordRule1';
   static const login_passwordRule2 = 'login.passwordRule2';
+  static const login_forgetPass = 'login.forgetPass';
+  static const login_reset = 'login.reset';
   static const login_bottom = 'login.bottom';
   static const login = 'login';
   static const signUp_title = 'signUp.title';

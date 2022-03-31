@@ -17,14 +17,14 @@ class PageNavigationService {
     Get.offAll(nextScreen);
   }
 
-  removeAndNavigateWithStream(Widget newScreen) {
+  removeAndNavigateWithStream(Widget newScreen, Widget stayScreen) {
     Get.offAll(StreamBuilder(
         stream: auth.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return newScreen;
           } else {
-            return const LoginScreen();
+            return stayScreen;
           }
         }));
   }
