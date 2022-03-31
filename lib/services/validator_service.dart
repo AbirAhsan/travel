@@ -13,18 +13,6 @@ class ValidatorService {
     return false;
   }
 
-//<=============================================Mobile Number Validaor
-  String? validateMobile(String? value) {
-// Bangladeshi Mobile number are of 11 digit only
-
-    if (value!.isEmpty) {
-      return LocaleKeys.login_phoneNumberRule1.tr();
-    } else if (value.length != 10) {
-      return LocaleKeys.login_phoneNumberRule2.tr();
-    }
-    return null;
-  }
-
   //<=============================================Mobile Number Validaor
   String? validatePassword(String? value) {
 // Bangladeshi Mobile number are of 11 digit only
@@ -48,42 +36,12 @@ class ValidatorService {
     return null;
   }
 
-//<=============================================== Short code Validator
-  String? validateShortCode(String? value) {
-    if (value!.isEmpty) {
-      return LocaleKeys.signUp_businessShortNameRule1.tr();
-    } else if (value.length < 2) {
-      return LocaleKeys.signUp_businessShortNameRule2.tr();
-    }
-    return null;
-  }
-
-//<=============================================== Business Name Validator
-  String? validateBusinessName(String? value) {
-    if (value!.isEmpty) {
-      return LocaleKeys.signUp_shopNameRule1.tr();
-    } else if (value.length < 3) {
-      return LocaleKeys.signUp_shopNameRule2.tr();
-    }
-    return null;
-  }
-
   //<============================================== Name Validator
   String? validateName(String? value) {
     if (value!.isEmpty) {
       return LocaleKeys.signUp_nameRule1.tr();
     } else if (value.length < 3) {
       return LocaleKeys.signUp_nameRule2.tr();
-    }
-    return null;
-  }
-
-  //<============================================== Address Validator
-  String? validateAddress(String? value) {
-    if (value!.isEmpty) {
-      return LocaleKeys.signUp_shopAddressRule1.tr();
-    } else if (value.length < 3) {
-      return LocaleKeys.signUp_shopAddressRule2.tr();
     }
     return null;
   }

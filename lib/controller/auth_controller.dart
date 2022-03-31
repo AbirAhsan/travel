@@ -7,4 +7,7 @@ class AuthController extends GetxController {
   GlobalKey<FormState> resetPassFormKey = GlobalKey<FormState>();
   TextEditingController userEmailCtrl = TextEditingController();
   TextEditingController userPassCtrl = TextEditingController();
+  TextEditingController regEmailCtrl = TextEditingController();
+  TextEditingController regPassCtrl = TextEditingController();
+  TextEditingController regConfirmPassCtrl = TextEditingController();
 }

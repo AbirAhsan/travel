@@ -8,6 +8,7 @@ import 'package:travel/services/page_navigation.dart';
 import 'package:travel/views/auth/forget_password.dart';
 import 'package:travel/views/auth/registration_screen.dart';
 import 'package:travel/views/home/home_screen.dart';
+import 'package:travel/views/variables/icon_variables.dart';
 import 'package:travel/views/variables/text_style.dart';
 import 'package:travel/views/widget/custom_elevated_button.dart';
 import 'package:travel/views/widget/custom_text_field.dart';
@@ -36,17 +37,20 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             width: _width,
             height: _height,
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
             child: ListView(
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                const Icon(
-                  Icons.lock_sharp,
-                  size: 46,
-                  color: Colors.grey,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                    "$loginIcon",
+                    height: 64,
+                    width: 64,
+                  ),
                 ),
                 Text(
                   LocaleKeys.login_body.tr(),

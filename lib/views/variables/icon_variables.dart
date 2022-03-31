@@ -5,3 +5,6 @@ const String? busWallpaper1 = "assets/images/bus-wallpaper1.png";
 const String? busWallpaper2 = "assets/images/bus-wallpaper2.png";
 const String? busWallpaper3 = "assets/images/bus-wallpaper3.png";
 const String? busWallpaper4 = "assets/images/bus-wallpaper4.png";
+
+const String? loginIcon = "assets/icons/login-icon.png";
+const String? registrationIcon = "assets/icons/registration-icon.png";
