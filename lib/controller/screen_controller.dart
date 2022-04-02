@@ -10,6 +10,8 @@ class ScreenController extends GetxController
     with GetSingleTickerProviderStateMixin {
   final GetStorage sharedData = GetStorage();
   RxBool isPasswordVisible = false.obs;
+  RxBool isSeeAllDomestic = false.obs;
+  RxBool isSeeAllInternational = false.obs;
   TabController? tabController;
   TextEditingController? remarks = TextEditingController();
 

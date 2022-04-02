@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class AuthController extends GetxController {
   TextEditingController regEmailCtrl = TextEditingController();
   TextEditingController regPassCtrl = TextEditingController();
   TextEditingController regConfirmPassCtrl = TextEditingController();
-
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
   //<<====================================== Try To Login
   void tryToLogin() async {
     if (ValidatorService().validateAndSave(loginFormKey)) {
@@ -48,11 +49,22 @@ class AuthController extends GetxController {
     if (ValidatorService().validateAndSave(registrationFormKey)) {
       try {
         CustomEassyLoading().startLoading();
-        UserCredential userCredential =
-            await auth.createUserWithEmailAndPassword(
+
+        await auth
+            .createUserWithEmailAndPassword(
           email: regEmailCtrl.text,
           password: regConfirmPassCtrl.text,
-        );
+        )
+            .then((value) async {
+          User? user = auth.currentUser;
+
+          await users.doc(user!.uid).set({
+            'uid': user.uid,
+            'email': user.email,
+            'isEmailVerified': user.emailVerified, // will also be false
+            "bookedTour": [],
+          });
+        });
         CustomEassyLoading().stopLoading();
       } on FirebaseAuthException catch (e) {
         // print("Exception is ${e.code}");
