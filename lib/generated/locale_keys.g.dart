@@ -43,6 +43,7 @@ abstract class  LocaleKeys {
   static const signUp_cPassword = 'signUp.cPassword';
   static const signUp_cPasswordRule1 = 'signUp.cPasswordRule1';
   static const signUp_cPasswordRule2 = 'signUp.cPasswordRule2';
+  static const signUp_cPasswordRule3 = 'signUp.cPasswordRule3';
   static const signUp_bottom = 'signUp.bottom';
   static const signUp_succesfull = 'signUp.succesfull';
   static const signUp = 'signUp';
@@ -115,6 +116,9 @@ abstract class  LocaleKeys {
   static const popUp_cancel = 'popUp.cancel';
   static const popUp_ok = 'popUp.ok';
   static const popUp = 'popUp';
+  static const connectionState_offline = 'connectionState.offline';
+  static const connectionState_noData = 'connectionState.noData';
+  static const connectionState = 'connectionState';
   static const internetConnectionCheck_warning = 'internetConnectionCheck.warning';
   static const internetConnectionCheck = 'internetConnectionCheck';
 

@@ -1,5 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../main.dart';
+import '../services/api_error_handle_service.dart';
+import '../services/custom_eassy_loading.dart';
+import '../services/validator_service.dart';
 
 class AuthController extends GetxController {
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -10,4 +16,64 @@ class AuthController extends GetxController {
   TextEditingController regEmailCtrl = TextEditingController();
   TextEditingController regPassCtrl = TextEditingController();
   TextEditingController regConfirmPassCtrl = TextEditingController();
+
+  //<<====================================== Try To Login
+  void tryToLogin() async {
+    if (ValidatorService().validateAndSave(loginFormKey)) {
+      try {
+        CustomEassyLoading().startLoading();
+        UserCredential userCredential = await auth.signInWithEmailAndPassword(
+            email: userEmailCtrl.text, password: userPassCtrl.text);
+        CustomEassyLoading().stopLoading();
+      } on FirebaseAuthException catch (e) {
+        // print("Exception is ${e.code}");
+        CustomEassyLoading().stopLoading();
+        ApiErrorHandleService().handleStatusCodeError(e.code);
+        // if (e.code == "user-not-found") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "User not Found");
+        // } else if (e.code == "invalid-email") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "Invalid Email");
+        // } else if (e.code == "wrong-password") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "Password is Incorrect");
+        // }
+      }
+    }
+  }
+
+  //<<====================================== Try To Register
+  void tryToRegister() async {
+    if (ValidatorService().validateAndSave(registrationFormKey)) {
+      try {
+        CustomEassyLoading().startLoading();
+        UserCredential userCredential =
+            await auth.createUserWithEmailAndPassword(
+          email: regEmailCtrl.text,
+          password: regConfirmPassCtrl.text,
+        );
+        CustomEassyLoading().stopLoading();
+      } on FirebaseAuthException catch (e) {
+        // print("Exception is ${e.code}");
+        CustomEassyLoading().stopLoading();
+        ApiErrorHandleService().handleStatusCodeError(e.code);
+        // if (e.code == "user-not-found") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "User not Found");
+        // } else if (e.code == "invalid-email") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "Invalid Email");
+        // } else if (e.code == "wrong-password") {
+        //   CustomScafoldMessages(isWarning: true)
+        //       .showMeassage(context, "Password is Incorrect");
+        // }
+      }
+    }
+  }
+
+//<<======================================================= LogOut
+  void logOut() {
+    auth.signOut();
+  }
 }

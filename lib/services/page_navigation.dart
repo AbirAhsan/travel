@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:travel/views/auth/login_screen.dart';
 
 import '../main.dart';
 

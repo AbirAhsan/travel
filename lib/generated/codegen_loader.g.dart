@@ -58,10 +58,11 @@ class CodegenLoader extends AssetLoader{
     "emailRule2": "Email address is not valid",
     "password": "Password",
     "passwordRule1": "Enter Password",
-    "passwordRule2": "Password must not be less than 4 characters",
+    "passwordRule2": "Password must not be less than 6 characters",
     "cPassword": "Confirm Password",
     "cPasswordRule1": "Enter Password",
-    "cPasswordRule2": "Password must not be less than 4 characters",
+    "cPasswordRule2": "Password not Matched",
+    "cPasswordRule3": "Password must not be less than 6 characters",
     "bottom": "Already have an account? ",
     "succesfull": "Account Registration Succesfull. Please wait for the confirmation"
   },
@@ -142,6 +143,10 @@ class CodegenLoader extends AssetLoader{
     "back": "Back",
     "cancel": "Cancel",
     "ok": "Done"
+  },
+  "connectionState": {
+    "offline": "Offline",
+    "noData": "No Data Available"
   },
   "internetConnectionCheck": {
     "warning": "Please Check Your wifi and mobile data"

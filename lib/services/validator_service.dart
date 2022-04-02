@@ -19,7 +19,7 @@ class ValidatorService {
 
     if (value!.isEmpty) {
       return LocaleKeys.login_passwordRule1.tr();
-    } else if (value.length < 4) {
+    } else if (value.length < 6) {
       return LocaleKeys.login_passwordRule2.tr();
     }
     return null;

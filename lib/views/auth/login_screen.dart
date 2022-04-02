@@ -3,19 +3,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:travel/controller/screen_controller.dart';
-import 'package:travel/services/page_navigation.dart';
-import 'package:travel/views/auth/forget_password.dart';
-import 'package:travel/views/auth/registration_screen.dart';
-import 'package:travel/views/home/home_screen.dart';
-import 'package:travel/views/variables/icon_variables.dart';
-import 'package:travel/views/variables/text_style.dart';
-import 'package:travel/views/widget/custom_elevated_button.dart';
-import 'package:travel/views/widget/custom_text_field.dart';
 
 import '../../controller/auth_controller.dart';
+import '../../controller/screen_controller.dart';
 import '../../generated/locale_keys.g.dart';
+import '../../services/page_navigation.dart';
 import '../../services/validator_service.dart';
+import '../home/home_screen.dart';
+import '../variables/icon_variables.dart';
+import '../variables/text_style.dart';
+import '../widget/custom_elevated_button.dart';
+import '../widget/custom_text_field.dart';
+import 'forget_password.dart';
+import 'registration_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 CustomElevatedButton(
                   buttonName: LocaleKeys.login_title.tr(),
-                  onPressed: () {},
+                  onPressed: () => authCtrl.tryToLogin(),
                 ),
                 const SizedBox(
                   height: 20,

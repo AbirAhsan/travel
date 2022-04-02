@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:travel/views/auth/login_screen.dart';
 
 import '../../controller/auth_controller.dart';
 import '../../controller/screen_controller.dart';
@@ -15,6 +14,7 @@ import '../variables/icon_variables.dart';
 import '../variables/text_style.dart';
 import '../widget/custom_elevated_button.dart';
 import '../widget/custom_text_field.dart';
+import 'login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class RegistrationScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: Form(
-          key: authCtrl.loginFormKey,
+          key: authCtrl.registrationFormKey,
           child: Container(
             width: _width,
             height: _height,
@@ -97,8 +97,8 @@ class RegistrationScreen extends StatelessWidget {
                     validator: (value) {
                       if (value!.isEmpty) {
                         return LocaleKeys.signUp_cPasswordRule1.tr();
-                      } else if (authCtrl.regPassCtrl !=
-                          authCtrl.regConfirmPassCtrl) {
+                      } else if (authCtrl.regPassCtrl.text !=
+                          authCtrl.regConfirmPassCtrl.text) {
                         return LocaleKeys.signUp_cPasswordRule2.tr();
                       }
                       return null;
@@ -125,7 +125,7 @@ class RegistrationScreen extends StatelessWidget {
                 ),
                 CustomElevatedButton(
                   buttonName: LocaleKeys.signUp_title.tr(),
-                  onPressed: () {},
+                  onPressed: () => authCtrl.tryToRegister(),
                 ),
                 const SizedBox(
                   height: 20,

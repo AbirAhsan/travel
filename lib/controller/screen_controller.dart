@@ -1,10 +1,10 @@
 import 'package:get/get.dart' hide Trans;
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:travel/views/auth/login_screen.dart';
-import 'package:travel/views/home/home_screen.dart';
 
 import '../services/page_navigation.dart';
+import '../views/auth/login_screen.dart';
+import '../views/home/home_screen.dart';
 
 class ScreenController extends GetxController
     with GetSingleTickerProviderStateMixin {
