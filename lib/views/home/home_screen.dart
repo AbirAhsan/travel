@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:travel/controller/screen_controller.dart';
+import 'package:travel/services/page_navigation.dart';
 import 'package:travel/views/variables/colors.dart';
 import 'package:travel/views/variables/text_style.dart';
 import 'package:travel/views/widget/custom_text_field.dart';
@@ -10,6 +11,7 @@ import 'package:travel/views/widget/custom_text_field.dart';
 import '../../controller/auth_controller.dart';
 import '../../generated/locale_keys.g.dart';
 import '../../controller/tour_controller.dart';
+import '../tours/tour_details_screen.dart';
 import '../widget/shimmer_effect.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,8 +22,7 @@ class HomeScreen extends StatelessWidget {
     final AuthController authCtrl = Get.put(AuthController());
     final ScreenController screenCtrl = Get.put(ScreenController());
     final TourController tourCtrl = Get.put(TourController());
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: whiteColor,
@@ -305,6 +306,8 @@ class HomeScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 tourDettails["shortDetails"],
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
                                                 style:
                                                     smallOffWhiteRegularStyle,
                                               ),
@@ -360,124 +363,8 @@ class HomeScreen extends StatelessWidget {
                                             tourDettails =
                                             tourCtrl.domesticTourListWithSearch[
                                                 index];
-                                        return SizedBox(
-                                          width: 240,
-                                          child: Card(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 150,
-                                                    child: Stack(
-                                                      children: [
-                                                        SizedBox(
-                                                          width: 240,
-                                                          height: 130,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                        .all(
-                                                                    Radius.circular(
-                                                                        10.0)),
-                                                            child: SizedBox(
-                                                              width: 240,
-                                                              height: 130,
-                                                              child:
-                                                                  Image.network(
-                                                                tourDettails[
-                                                                    "coverPhoto"][1],
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Positioned(
-                                                          bottom: 0.0,
-                                                          right: 0.0,
-                                                          child:
-                                                              RawMaterialButton(
-                                                            onPressed: () {},
-                                                            elevation: 5.0,
-                                                            fillColor:
-                                                                Colors.orange,
-                                                            child: const Icon(
-                                                              Icons
-                                                                  .arrow_forward,
-                                                              size: 20.0,
-                                                              color: whiteColor,
-                                                            ),
-                                                            shape:
-                                                                const CircleBorder(),
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    tourDettails["title"],
-                                                    style: smallBoldStyle,
-                                                  ),
-                                                  Text(
-                                                    tourDettails[
-                                                        "shortDetails"],
-                                                    style:
-                                                        smallOffWhiteRegularStyle,
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 10.0,
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          const Icon(
-                                                            Icons
-                                                                .calendar_month,
-                                                            size: 16,
-                                                          ),
-                                                          Text(
-                                                            DateFormat(
-                                                                    'dd/MM/yy')
-                                                                .format(tourDettails[
-                                                                        "start"]
-                                                                    .toDate()),
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Text(
-                                                            "${tourDettails["currency"]} ${tourDettails["price"]}",
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                          Text(
-                                                            " / ${tourDettails["duration"]} ${LocaleKeys.homeScreen_day.tr()}",
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        );
+                                        return _CustomCardForListview(
+                                            tourDettails: tourDettails);
                                       }),
                                 ),
                         );
@@ -747,6 +634,8 @@ class HomeScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 tourDettails["shortDetails"],
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
                                                 style:
                                                     smallOffWhiteRegularStyle,
                                               ),
@@ -803,124 +692,8 @@ class HomeScreen extends StatelessWidget {
                                             Object?> tourDettails = tourCtrl
                                                 .internationalTourListWithSearch[
                                             index];
-                                        return Container(
-                                          width: 240,
-                                          child: Card(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 150,
-                                                    child: Stack(
-                                                      children: [
-                                                        SizedBox(
-                                                          width: 240,
-                                                          height: 130,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                        .all(
-                                                                    Radius.circular(
-                                                                        10.0)),
-                                                            child: SizedBox(
-                                                              width: 240,
-                                                              height: 130,
-                                                              child:
-                                                                  Image.network(
-                                                                tourDettails[
-                                                                    "coverPhoto"][1],
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Positioned(
-                                                          bottom: 0.0,
-                                                          right: 0.0,
-                                                          child:
-                                                              RawMaterialButton(
-                                                            onPressed: () {},
-                                                            elevation: 5.0,
-                                                            fillColor:
-                                                                Colors.orange,
-                                                            child: const Icon(
-                                                              Icons
-                                                                  .arrow_forward,
-                                                              size: 20.0,
-                                                              color: whiteColor,
-                                                            ),
-                                                            shape:
-                                                                const CircleBorder(),
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    tourDettails["title"],
-                                                    style: smallBoldStyle,
-                                                  ),
-                                                  Text(
-                                                    tourDettails[
-                                                        "shortDetails"],
-                                                    style:
-                                                        smallOffWhiteRegularStyle,
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 10.0,
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          const Icon(
-                                                            Icons
-                                                                .calendar_month,
-                                                            size: 16,
-                                                          ),
-                                                          Text(
-                                                            DateFormat(
-                                                                    'dd/MM/yy')
-                                                                .format(tourDettails[
-                                                                        "start"]
-                                                                    .toDate()),
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Text(
-                                                            "${tourDettails["currency"]} ${tourDettails["price"]}",
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                          Text(
-                                                            " / ${tourDettails["duration"]} ${LocaleKeys.homeScreen_day.tr()}",
-                                                            style:
-                                                                extraSmallRegularStyle,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        );
+                                        return _CustomCardForListview(
+                                            tourDettails: tourDettails);
                                       }),
                                 ),
                         );
@@ -938,6 +711,117 @@ class HomeScreen extends StatelessWidget {
                   }
                 }),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CustomCardForListview extends StatelessWidget {
+  const _CustomCardForListview({
+    Key? key,
+    required this.tourDettails,
+  }) : super(key: key);
+
+  final QueryDocumentSnapshot<Object?> tourDettails;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 240,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 150,
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      width: 240,
+                      height: 130,
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        child: SizedBox(
+                          width: 240,
+                          height: 130,
+                          child: Image.network(
+                            tourDettails["coverPhoto"][1],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0.0,
+                      right: 0.0,
+                      child: RawMaterialButton(
+                        onPressed: () => PageNavigationService()
+                            .generalNavigation(TourDetailsScreen(
+                          tourDetails: tourDettails,
+                        )),
+                        elevation: 5.0,
+                        fillColor: Colors.orange,
+                        child: const Icon(
+                          Icons.arrow_forward,
+                          size: 20.0,
+                          color: whiteColor,
+                        ),
+                        shape: const CircleBorder(),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Text(
+                tourDettails["title"],
+                style: smallBoldStyle,
+              ),
+              Text(
+                tourDettails["shortDetails"],
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: smallOffWhiteRegularStyle,
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.calendar_month,
+                        size: 16,
+                      ),
+                      Text(
+                        DateFormat('dd/MM/yy')
+                            .format(tourDettails["start"].toDate()),
+                        style: extraSmallRegularStyle,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "${tourDettails["currency"]} ${tourDettails["price"]}",
+                        style: extraSmallRegularStyle,
+                      ),
+                      Text(
+                        " / ${tourDettails["duration"]} ${LocaleKeys.homeScreen_day.tr()}",
+                        style: extraSmallRegularStyle,
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
